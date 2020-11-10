@@ -20,7 +20,7 @@ import lombok.ToString;
  * @author whalyson
  */
 @Entity
-@Table(name = "tb_pessoas")
+@Table(name = "tb_pessoa")
 @ToString
 public class Pessoa implements Serializable {
     
