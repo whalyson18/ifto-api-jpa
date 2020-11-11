@@ -5,15 +5,13 @@
  */
 package com.whalyson.App.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
-import com.whalyson.App.model.Produto;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,10 +23,9 @@ public class Venda {
     @Setter @Getter private int id;
     @Setter @Getter private Date data;
     
-    @ManyToMany(mappedBy = "produtos")
-    private List<Produto> produto=new ArrayList();
+    @OneToMany(mappedBy = "itemvenda")
+    private List<ItemVenda> itensVenda;
     
-    public double total(){
-        return 1.5;
+    public void total(){
     }
 }

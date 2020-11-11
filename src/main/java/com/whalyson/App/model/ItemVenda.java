@@ -5,15 +5,12 @@
  */
 package com.whalyson.App.model;
 
-import java.util.List;
-import javax.persistence.OneToMany;
-import com.whalyson.App.model.Produto;
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,18 +21,22 @@ import lombok.Setter;
  */
 @Entity
 @Table(name = "tb_item_venda")
-public class ItemVenda implements Serializable{
+public class ItemVenda{
     
     @Id
     @GeneratedValue
     @Setter @Getter private int id;
-    @Setter @Getter private double valor;
+    @Setter @Getter private double quantidade;
     
-    @OneToMany(mappedBy = "produto")
-    private List<Produto> produto;
+    @OneToOne
+    @JoinColumn(name = "id_produto")
+    private Produto produto;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_venda")
+    private Venda venda;
     
     
-    public double total(){
-        return 1.4;
+    public void total(){
     }
 }

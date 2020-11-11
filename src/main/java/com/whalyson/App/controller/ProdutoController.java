@@ -5,7 +5,6 @@
  */
 package com.whalyson.App.controller;
 
-import com.whalyson.App.dao.PessoaDAO;
 import com.whalyson.App.dao.ProdutoDAO;
 import com.whalyson.App.model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
